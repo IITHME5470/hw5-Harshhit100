@@ -48,9 +48,9 @@ avg_diff = mean(differences(:));
 %% Step 4: Display Results
 fprintf('Comparison of Serial and Parallel Runs After 10 Time Steps:\n');
 fprintf('-------------------------------------------------------------\n');
-fprintf('Maximum Difference: %.20e\n', max_diff);
-fprintf('Minimum Difference: %.20e\n', min_diff);
-fprintf('Average Difference: %.20e\n', avg_diff);
+fprintf('Maximum Difference: %.24e\n', max_diff);
+fprintf('Minimum Difference: %.24e\n', min_diff);
+fprintf('Average Difference: %.24e\n', avg_diff);
 
 % Check if differences are within machine precision
 tolerance = eps;

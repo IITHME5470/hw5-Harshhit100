@@ -611,16 +611,17 @@ int main(int argc, char **argv)
     // Forward (explicit) Euler
     timestep_FwdEuler(rank, size, rank_x, rank_y, px, py, nx, nxglob, ny, nyglob, istglob, ienglob, jstglob, jenglob, dt, dx, dy, xleftghost, xrightghost, ybotghost, ytopghost, kdiff, x, y, T, rhs, sendbuf_x, recvbuf_x, sendbuf_y, recvbuf_y); // update T
 
-    if(it == 10) {
+    if (it == 10)
+    {
       // Each process writes its part
       char fname[100];
       sprintf(fname, "parallel_solution_10steps_%d.dat", rank);
-      FILE* fp = fopen(fname, "w");
-      for(i=0; i<nx; i++)
-          for(j=0; j<ny; j++)
-              fprintf(fp, "%d %d %.15e\n", i+istglob, j+jstglob, T[i][j]);
+      FILE *fp = fopen(fname, "w");
+      for (i = 0; i < nx; i++)
+        for (j = 0; j < ny; j++)
+          fprintf(fp, "%d %d %.20e\n", i + istglob, j + jstglob, T[i][j]);
       fclose(fp);
-  }
+    }
     // Backward (implicit) Euler
     // timestep_BwdEuler(nx,ny,dt,dx,dy,kdiff,x,y,T,rhs,Tnew);    // update T
 
